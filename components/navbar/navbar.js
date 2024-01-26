@@ -56,20 +56,29 @@ class Navbar extends HTMLElement {
         right.setAttribute("class", "right");
 
         // Products page link
-        const products = document.createElement("a");
+        const products = document.createElement("a");               // <- Change to "div" if using in a single page application (SPA)
         products.classList.add("products");
-        products.setAttribute("href", "./pages/products.html");
+        products.setAttribute("href", "./pages/products.html"); // <- Delete this line if using in an SPA
         products.innerText = "Products";
-
+        // products.addEventListener('click', () => {
+        //     If converting to a single page application, the function call to change content goes here
+        // });
+        
         // Cart page link
-        const cart = document.createElement("a");
-        cart.setAttribute("href", "./pages/cart.html");
+        const cart = document.createElement("a");                   // <- Change to "div" if using in an SPA
+        cart.setAttribute("href", "./pages/cart.html");             // <- Delete this line if using in an SPA
         cart.innerHTML = `<svg class="lucide lucide-shopping-cart page-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>`;
-    
+        // cart.addEventListener('click', () => {
+        //     If converting to a single page application, the function call to change content goes here  
+        // });
+
         // Client page link
-        const client = document.createElement("a");
-        client.setAttribute("href", "./pages/client.html");
+        const client = document.createElement("a");                 // <- Change to "div" if using in in an SPA
+        client.setAttribute("href", "./pages/client.html");         // <- Delete this line if using in an SPA
         client.innerHTML = `<svg class="lucide lucide-circle-user-round page-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="4"/><path d="M18 20a6 6 0 0 0-12 0"/></svg>`;
+        // client.addEventListener('click', () => {
+        //     If using converting to a single page applications, the function call to change content goes here    
+        // });
 
         const currentPage = this.getAttribute("page");
 
