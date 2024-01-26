@@ -17,7 +17,7 @@ function openInfo(tabName) {
 	}
 
 	// Show the current tab, and add an "active" class to the button that opened the tab
-	document.getElementById(tabName).style.display = "block";
+	document.getElementById(tabName).style.display = "flex";
 	document.getElementById(tabName).classList.add('active');
 
 }
@@ -91,5 +91,7 @@ function selectedItems(){
 	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
 		
 }
+
+openInfo('Products');
 
 export { openInfo };

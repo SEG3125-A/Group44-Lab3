@@ -70,7 +70,7 @@ class StyledCheckbox extends HTMLElement {
         // Apply our custom external styles
         const CSSLink = document.createElement("link");
         CSSLink.setAttribute("rel", "stylesheet");
-        CSSLink.setAttribute("href", "../components/checkbox/checkbox.css");
+        CSSLink.setAttribute("href", "./components/checkbox/checkbox.css");
 
 
         // Adding our sub-elements to the shadow-DOM 
