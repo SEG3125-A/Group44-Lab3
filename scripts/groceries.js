@@ -4,23 +4,65 @@
 
 var products = [
 	{
-		name: "brocoli",
+		name: "apple",
 		vegetarian: true,
 		glutenFree: true,
-		price: 1.99
+		price: 1.05
 	},
 	{
 		name: "bread",
 		vegetarian: true,
 		glutenFree: false,
-		price: 2.35
+		price: 3.29
 	},
 	{
-		name: "salmon",
+		name: "cake",
+		vegetarian: true,
+		glutenFree: false,
+		price: 18
+	},
+	{
+		name: "chicken",
 		vegetarian: false,
 		glutenFree: true,
-		price: 10.00
-	}
+		price: 17.58
+	},
+	{
+		name: "eggs",
+		vegetarian: true,
+		glutenFree: true,
+		price: 6.99
+	},
+	{
+		name: "ice-cream",
+		vegetarian: true,
+		glutenFree: true,
+		price: 4.39
+	},
+	{
+		name: "pasta",
+		vegetarian: true,
+		glutenFree: false,
+		price: 8.99
+	},
+	{
+		name: "pizza",
+		vegetarian: false,
+		glutenFree: false,
+		price: 9.99
+	},
+	{
+		name: "potatoes",
+		vegetarian: true,
+		glutenFree: true,
+		price: 4.97
+	},
+	{
+		name: "rice",
+		vegetarian: true,
+		glutenFree: true,
+		price: 16.99
+	},
 ];
 	
 
