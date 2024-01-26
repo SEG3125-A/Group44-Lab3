@@ -58,17 +58,17 @@ class Navbar extends HTMLElement {
         // Products page link
         const products = document.createElement("a");
         products.classList.add("products");
-        products.setAttribute("href", "../../pages/products.html");
+        products.setAttribute("href", "./pages/products.html");
         products.innerText = "Products";
 
         // Cart page link
         const cart = document.createElement("a");
-        cart.setAttribute("href", "../../pages/cart.html");
+        cart.setAttribute("href", "./pages/cart.html");
         cart.innerHTML = `<svg class="lucide lucide-shopping-cart page-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>`;
     
         // Client page link
         const client = document.createElement("a");
-        client.setAttribute("href", "../../pages/client.html");
+        client.setAttribute("href", "./pages/client.html");
         client.innerHTML = `<svg class="lucide lucide-circle-user-round page-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="4"/><path d="M18 20a6 6 0 0 0-12 0"/></svg>`;
 
         const currentPage = this.getAttribute("page");
@@ -87,7 +87,7 @@ class Navbar extends HTMLElement {
         // Apply our custom external styles
         const CSSLink = document.createElement("link");
         CSSLink.setAttribute("rel", "stylesheet");
-        CSSLink.setAttribute("href", "../components/navbar/navbar.css");
+        CSSLink.setAttribute("href", "./components/navbar/navbar.css");
 
         // Adding our sub-elements to the shadow-DOM 
         shadow.appendChild(CSSLink);
