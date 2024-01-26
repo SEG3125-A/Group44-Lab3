@@ -24,3 +24,51 @@ body {
     min-width: 400px;
     max-width: 1280px;
 }
+
+.section-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 0px;
+    padding: 0px;
+    flex-wrap: nowrap;
+
+    color: rgba(9, 139, 153, 1);
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.section-name {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.h-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(9, 139, 153, 1);
+    border-radius: 2px;
+}
+
+.field-name {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    
+    & > .field-name-main {
+        color: rgba(9, 139, 153, 1);
+    }
+    & > .field-name-hint {
+        color: rgba(183, 189, 190, 1);
+    }
+  }
