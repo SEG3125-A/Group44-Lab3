@@ -68,19 +68,19 @@ function populateListProductChoices() {
 // The purpose is to build the HTML to be displayed (a Paragraph) 
 // We build a paragraph to contain the list of selected items, and the total price
 
-function selectedItems(){
+function selectedItems() {
 	
 	var ele = document.getElementsByName("product");
 	var chosenProducts = [];
 	
-	var c = document.getElementById('displayCart');
-	c.innerHTML = "";
+	var cart = document.getElementById('displayCart');
+	cart.innerHTML = "";
 	
 	// build list of selected item
 	var para = document.createElement("P");
 	para.innerHTML = "You selected : ";
 	para.appendChild(document.createElement("br"));
-	for (i = 0; i < ele.length; i++) { 
+	for (let i = 0; i < ele.length; i++) { 
 		if (ele[i].checked) {
 			para.appendChild(document.createTextNode(ele[i].value));
 			para.appendChild(document.createElement("br"));
@@ -89,10 +89,12 @@ function selectedItems(){
 	}
 		
 	// add paragraph and total price
-	c.appendChild(para);
-	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+	cart.appendChild(para);
+	cart.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
 		
 }
+
+document.getElementById('addCart').addEventListener('click', () => { selectedItems(); });
 
 
 const filters = document.getElementsByClassName('filter');
