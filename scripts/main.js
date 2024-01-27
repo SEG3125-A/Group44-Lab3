@@ -50,13 +50,17 @@ function populateListProductChoices() {
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
-		checkbox.value = productName;
+		checkbox.value = productName.name;
 		productsDiv.appendChild(checkbox);
 		
 		// create a label for the checkbox, and also add in HTML DOM
 		var label = document.createElement('label')
 		label.htmlFor = productName;
-		label.appendChild(document.createTextNode(productName));
+
+		// Concatenate name and price information for the label
+		var labelText = productName.name + " - $" + productName.price.toFixed(2); // Assuming price is a numeric value
+		label.appendChild(document.createTextNode(labelText));
+		
 		productsDiv.appendChild(label);
 		
 		// create a breakline node and add in HTML DOM
