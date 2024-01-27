@@ -8,7 +8,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 1.05
 	},
 	{
@@ -16,7 +16,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: false,
-        lowSugar: true,
+        organic: true,
 		price: 3.29
 	},
 	{
@@ -24,7 +24,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: false,
-        lowSugar: false,
+        organic: false,
 		price: 18
 	},
 	{
@@ -32,7 +32,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 17.58
 	},
 	{
@@ -40,15 +40,15 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 6.99
 	},
 	{
-		name: "Ice cream",
+		name: "Ice Cream",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: false,
-        lowSugar: false,
+        organic: false,
 		price: 4.39
 	},
 	{
@@ -56,7 +56,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 8.99
 	},
 	{
@@ -64,7 +64,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: false,
         dairyFree: false,
-        lowSugar: true,
+        organic: false,
 		price: 9.99
 	},
 	{
@@ -72,7 +72,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 4.97
 	},
 	{
@@ -80,7 +80,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 16.99
 	},
 ];
@@ -95,15 +95,17 @@ function restrictListProducts(prods, restrictions) {
 
     // Add all products to the set
     for (let i = 0; i < prods.length; i++) {
-		// Creating an empty dictionary
-		const productsDictionary = {};
-
-		// Adding key-value pairs
-		productsDictionary["name"] = prods[i].name;
-		productsDictionary["price"] = prods[i].price;
-		
-        products.add(productsDictionary);
+        products.add(prods[i]);
     }
+
+	// Convert the Set to an array
+	const productsArray = Array.from(products);
+
+	// Sort the array based on the 'price' property of each product
+	productsArray.sort((a, b) => a.price - b.price);
+
+	// Recreate the Set with the sorted products
+	products = new Set(productsArray);
 
     // Remove the ones that don't meet the restriction
     restrictions.forEach ((restriction) => {
@@ -111,22 +113,22 @@ function restrictListProducts(prods, restrictions) {
 
             if ((restriction == "vegetarian") 
                 && (prods[i].vegetarian == false)
-                && (products.has(prods[i].name))){
+                && (products.has(prods[i]))){
                     products.delete(prods[i]);
 
             } else if ((restriction == "gluten-free") 
                 && (prods[i].glutenFree == false)
-                && (products.has(prods[i].name))){
+                && (products.has(prods[i]))){
                     products.delete(prods[i]);
 
             } else if ((restriction == "lactose-intolerant") 
                 && (prods[i].dairyFree == false)
-                && (products.has(prods[i].name))){
+                && (products.has(prods[i]))){
                     products.delete(prods[i]);
 
-            } else if ((restriction == "low-sugar") 
-                && (prods[i].lowSugar == false)
-                && (products.has(prods[i].name))){
+            } else if ((restriction == "organic") 
+                && (prods[i].organic == false)
+                && (products.has(prods[i]))){
                     products.delete(prods[i]);
             }
 
@@ -146,13 +148,13 @@ function restrictListProducts(prods, restrictions) {
 
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
-	totalPrice = 0;
-	for (let i=0; i<products.length; i+=1) {
+	let totalPrice = 0;
+	for (let i = 0; i < products.length; i++) {
 		if (chosenProducts.indexOf(products[i].name) > -1){
 			totalPrice += products[i].price;
 		}
 	}
-	return totalPrice;
+	return totalPrice.toFixed(2);
 }
 
 export { products, restrictListProducts, getTotalPrice };

@@ -45,8 +45,9 @@ function populateListProductChoices() {
 		
 	for (let i = 0; i < optionArray.length; i++) {
 			
-		var productName = optionArray[i];
+		var productName = optionArray[i].name;
 		// create the checkbox and add in HTML DOM
+
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
@@ -61,8 +62,28 @@ function populateListProductChoices() {
 		// Concatenate name and price information for the label
 		var labelText = productName.name + " - $" + productName.price.toFixed(2); // Assuming price is a numeric value
 		label.appendChild(document.createTextNode(labelText));
+
+		// var checkbox = document.createElement("input");
+		// checkbox.type = "checkbox";
+		// checkbox.name = "product";
+		// checkbox.value = productName;
+		// productsDiv.appendChild(checkbox);
+
 		
-		productsDiv.appendChild(label);
+		// // create a label for the checkbox, and also add in HTML DOM
+		// var label = document.createElement('label')
+		// label.htmlFor = productName;
+        
+        // // Concatenate name and price information for the label
+		// label.appendChild(document.createTextNode(labelText));
+
+        const checkbox = document.createElement("styled-checkbox");
+        checkbox.setAttribute("name", "product");
+        checkbox.setAttribute("label", productName + " - $" + optionArray[i].price.toFixed(2)); // Assuming price is a numeric value
+        checkbox.setAttribute("id", productName);
+        checkbox.addEventListener('click', (event) => { event.preventDefault(); });
+        
+		productsDiv.appendChild(checkbox);
 		
 		// create a breakline node and add in HTML DOM
 		productsDiv.appendChild(document.createElement("br"));    
@@ -73,31 +94,33 @@ function populateListProductChoices() {
 // The purpose is to build the HTML to be displayed (a Paragraph) 
 // We build a paragraph to contain the list of selected items, and the total price
 
-function selectedItems(){
+function selectedItems() {
 	
 	var ele = document.getElementsByName("product");
 	var chosenProducts = [];
 	
-	var c = document.getElementById('displayCart');
-	c.innerHTML = "";
+	var cart = document.getElementById('displayCart');
+	cart.innerHTML = "";
 	
 	// build list of selected item
 	var para = document.createElement("P");
 	para.innerHTML = "You selected : ";
 	para.appendChild(document.createElement("br"));
-	for (i = 0; i < ele.length; i++) { 
+	for (let i = 0; i < ele.length; i++) { 
 		if (ele[i].checked) {
-			para.appendChild(document.createTextNode(ele[i].value));
+			para.appendChild(document.createTextNode(ele[i].id));
 			para.appendChild(document.createElement("br"));
-			chosenProducts.push(ele[i].value);
+			chosenProducts.push(ele[i].id);
 		}
 	}
 		
 	// add paragraph and total price
-	c.appendChild(para);
-	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+	cart.appendChild(para);
+	cart.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
 		
 }
+
+document.getElementById('addCart').addEventListener('click', () => { selectedItems(); });
 
 
 const filters = document.getElementsByClassName('filter');
