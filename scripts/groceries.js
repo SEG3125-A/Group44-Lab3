@@ -95,14 +95,7 @@ function restrictListProducts(prods, restrictions) {
 
     // Add all products to the set
     for (let i = 0; i < prods.length; i++) {
-		// Creating an empty dictionary
-		const productsDictionary = {};
-
-		// Adding key-value pairs
-		productsDictionary["name"] = prods[i].name;
-		productsDictionary["price"] = prods[i].price;
-		
-        products.add(productsDictionary);
+        products.add(prods[i].name);
     }
 
     // Remove the ones that don't meet the restriction
@@ -112,22 +105,22 @@ function restrictListProducts(prods, restrictions) {
             if ((restriction == "vegetarian") 
                 && (prods[i].vegetarian == false)
                 && (products.has(prods[i].name))){
-                    products.delete(prods[i]);
+                    products.delete(prods[i].name);
 
             } else if ((restriction == "gluten-free") 
                 && (prods[i].glutenFree == false)
                 && (products.has(prods[i].name))){
-                    products.delete(prods[i]);
+                    products.delete(prods[i].name);
 
             } else if ((restriction == "lactose-intolerant") 
                 && (prods[i].dairyFree == false)
                 && (products.has(prods[i].name))){
-                    products.delete(prods[i]);
+                    products.delete(prods[i].name);
 
             } else if ((restriction == "low-sugar") 
                 && (prods[i].lowSugar == false)
                 && (products.has(prods[i].name))){
-                    products.delete(prods[i]);
+                    products.delete(prods[i].name);
             }
 
         }
