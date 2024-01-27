@@ -51,6 +51,7 @@ function populateListProductChoices() {
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
 		checkbox.value = productName.name;
+		checkbox.className = "product-checkbox";
 		productsDiv.appendChild(checkbox);
 		
 		// create a label for the checkbox, and also add in HTML DOM

@@ -81,3 +81,7 @@ body {
         color: rgba(183, 189, 190, 1);
     }
   }
+
+.product-checkbox {
+    margin: 10px;
+}

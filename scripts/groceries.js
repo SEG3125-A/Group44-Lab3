@@ -4,7 +4,7 @@
 
 var products = [
 	{
-		name: "apple",
+		name: "Apple",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
@@ -12,7 +12,7 @@ var products = [
 		price: 1.05
 	},
 	{
-		name: "bread",
+		name: "Bread",
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: false,
@@ -20,7 +20,7 @@ var products = [
 		price: 3.29
 	},
 	{
-		name: "cake",
+		name: "Cake",
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: false,
@@ -28,7 +28,7 @@ var products = [
 		price: 18
 	},
 	{
-		name: "chicken",
+		name: "Chicken",
 		vegetarian: false,
 		glutenFree: true,
         dairyFree: true,
@@ -36,7 +36,7 @@ var products = [
 		price: 17.58
 	},
 	{
-		name: "eggs",
+		name: "Eggs",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
@@ -44,7 +44,7 @@ var products = [
 		price: 6.99
 	},
 	{
-		name: "ice-cream",
+		name: "Ice cream",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: false,
@@ -52,7 +52,7 @@ var products = [
 		price: 4.39
 	},
 	{
-		name: "pasta",
+		name: "Pasta",
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: true,
@@ -60,7 +60,7 @@ var products = [
 		price: 8.99
 	},
 	{
-		name: "pizza",
+		name: "Pizza",
 		vegetarian: false,
 		glutenFree: false,
         dairyFree: false,
@@ -68,7 +68,7 @@ var products = [
 		price: 9.99
 	},
 	{
-		name: "potatoes",
+		name: "Potatoes",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
@@ -76,7 +76,7 @@ var products = [
 		price: 4.97
 	},
 	{
-		name: "rice",
+		name: "Rice",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
@@ -136,6 +136,9 @@ function restrictListProducts(prods, restrictions) {
     // Convert the set to an array (expected return type)
     let products_array = [];
     products.forEach ((product) => { products_array.push(product); });
+
+	// Sort array
+	products_array.sort((a, b) => a.price - b.price);
 
     console.log(products_array);
 	return products_array;
