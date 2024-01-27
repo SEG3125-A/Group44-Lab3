@@ -19,6 +19,12 @@
 >Lisa Korolyov
 
 >Zechen Zhou
+* Added product list
+* Created price entry for products
+* Sorted the products by price
+* Hosted this lab on GitHub Pages
 
 ### 5. Snapshots of the website: 
-  ![](/Docs/Images/snapshot.png)
+  ![](/Docs/Images/snapshot1.png)
+  ![](/Docs/Images/snapshot2.png)
+  ![](/Docs/Images/snapshot3.png)
