@@ -81,3 +81,16 @@ body {
         color: rgba(183, 189, 190, 1);
     }
   }
+
+.product-checkbox {
+    margin: 10px;
+}
+
+.add-to-cart-button {
+    width: max-content;
+    padding: 8px;
+    background-color: rgba(9, 139, 153, 1);
+    border-color: rgba(9, 139, 153, 1);
+    color: white;
+    font-weight: bold;
+}

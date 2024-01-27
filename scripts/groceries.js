@@ -139,6 +139,9 @@ function restrictListProducts(prods, restrictions) {
     let products_array = [];
     products.forEach ((product) => { products_array.push(product); });
 
+	// Sort array
+	products_array.sort((a, b) => a.price - b.price);
+
     console.log(products_array);
 	return products_array;
 }

@@ -47,11 +47,28 @@ function populateListProductChoices() {
 			
 		var productName = optionArray[i].name;
 		// create the checkbox and add in HTML DOM
+
+		var checkbox = document.createElement("input");
+		checkbox.type = "checkbox";
+		checkbox.name = "product";
+		checkbox.value = productName.name;
+		checkbox.className = "product-checkbox";
+		productsDiv.appendChild(checkbox);
+		
+		// create a label for the checkbox, and also add in HTML DOM
+		var label = document.createElement('label')
+		label.htmlFor = productName;
+
+		// Concatenate name and price information for the label
+		var labelText = productName.name + " - $" + productName.price.toFixed(2); // Assuming price is a numeric value
+		label.appendChild(document.createTextNode(labelText));
+
 		// var checkbox = document.createElement("input");
 		// checkbox.type = "checkbox";
 		// checkbox.name = "product";
 		// checkbox.value = productName;
 		// productsDiv.appendChild(checkbox);
+
 		
 		// // create a label for the checkbox, and also add in HTML DOM
 		// var label = document.createElement('label')
