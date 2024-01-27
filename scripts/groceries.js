@@ -105,6 +105,15 @@ function restrictListProducts(prods, restrictions) {
         products.add(productsDictionary);
     }
 
+	// Convert the Set to an array
+	const productsArray = Array.from(products);
+
+	// Sort the array based on the 'price' property of each product
+	productsArray.sort((a, b) => a.price - b.price);
+
+	// Recreate the Set with the sorted products
+	products = new Set(productsArray);
+
     // Remove the ones that don't meet the restriction
     restrictions.forEach ((restriction) => {
         for (let i = 0; i < prods.length; i++) {
