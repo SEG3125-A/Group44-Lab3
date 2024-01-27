@@ -7,6 +7,14 @@
 ### 4. Each member's contribution:
 
 >Andrew Clarke
+- Set up GitHub brepository
+- Designed Client page using Penpot (design tool)
+- Designed reusable navbar and checkbox components using Penpot (design tool)
+- Implemented navbar and navigation between pages
+- Implemented JavaScript functionality for selecting dietary restriction filters (which can be combined for more advanced filtering)
+- Implemented JavaScript functionality for displaying products according to the selected filters 
+- Lots of miscellanious bug fixes
+
 
 >Lisa Korolyov
 
