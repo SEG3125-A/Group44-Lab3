@@ -1,5 +1,7 @@
 # Lab 2 -- SEG3125
 
+*** PLEASE EVALUATE THE 'WORKING' BRANCH (not 'main') ***
+
 ### 0. Link to this webpage: https://seg3125-a.github.io/Group44-Lab2/
 ### 1. Group number: 44
 ### 2. Group members: Andrew Clarke, Lisa Korolyov, Zechen Zhou
