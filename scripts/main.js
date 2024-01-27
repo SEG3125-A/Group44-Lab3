@@ -95,7 +95,6 @@ function selectedItems(){
 }
 
 
-
 const filters = document.getElementsByClassName('filter');
 for (let i = 0; i < filters.length; i++) {
     filters[i].addEventListener('click', (event) => {
@@ -106,11 +105,12 @@ for (let i = 0; i < filters.length; i++) {
         } else {
             selectedFilters.add(filters[i].id);
         }
-        console.log(selectedFilters);
         populateListProductChoices();
     });
 }
 
 openInfo('Products');
 
-export { openInfo };
+populateListProductChoices();
+
+export { openInfo, selectedItems };
