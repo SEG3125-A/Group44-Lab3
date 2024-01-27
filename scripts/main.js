@@ -1,3 +1,7 @@
+import { products, restrictListProducts, getTotalPrice } from "./groceries.js";
+
+// Always up-to-date set of all currently selected filters
+let selectedFilters = new Set();
 
 // This function is called when any of the tab is clicked
 // It is adapted from https://www.w3schools.com/howto/howto_js_tabs.asp
@@ -27,21 +31,19 @@ function openInfo(tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct1, slct2) {
-    var s1 = document.getElementById(slct1);
-    var s2 = document.getElementById(slct2);
-	
-	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
-    s2.innerHTML = "";
+function populateListProductChoices() {
+    var productsDiv = document.getElementById('displayProduct'); 
+	// productsDiv represents the <div> in the Products tab, which shows the product list, so we first set it empty
+    productsDiv.innerHTML = "";
 		
 	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
+    var optionArray = restrictListProducts(products, selectedFilters);
 
 	// for each item in the array, create a checkbox element, each containing information such as:
 	// <input type="checkbox" name="product" value="Bread">
 	// <label for="Bread">Bread/label><br>
 		
-	for (i = 0; i < optionArray.length; i++) {
+	for (let i = 0; i < optionArray.length; i++) {
 			
 		var productName = optionArray[i];
 		// create the checkbox and add in HTML DOM
@@ -49,16 +51,16 @@ function populateListProductChoices(slct1, slct2) {
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
 		checkbox.value = productName;
-		s2.appendChild(checkbox);
+		productsDiv.appendChild(checkbox);
 		
 		// create a label for the checkbox, and also add in HTML DOM
 		var label = document.createElement('label')
 		label.htmlFor = productName;
 		label.appendChild(document.createTextNode(productName));
-		s2.appendChild(label);
+		productsDiv.appendChild(label);
 		
 		// create a breakline node and add in HTML DOM
-		s2.appendChild(document.createElement("br"));    
+		productsDiv.appendChild(document.createElement("br"));    
 	}
 }
 	
@@ -92,8 +94,7 @@ function selectedItems(){
 		
 }
 
-// Always up-to-date set of all currently selected filters
-let selectedFilters = new Set();
+
 
 const filters = document.getElementsByClassName('filter');
 for (let i = 0; i < filters.length; i++) {
@@ -106,6 +107,7 @@ for (let i = 0; i < filters.length; i++) {
             selectedFilters.add(filters[i].id);
         }
         console.log(selectedFilters);
+        populateListProductChoices();
     });
 }
 
