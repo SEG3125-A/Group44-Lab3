@@ -24,13 +24,14 @@ class StyledCheckbox extends HTMLElement {
     constructor() {
         // Always call super first in constructor
         super();
-        this.internals_ = this.attachInternals();
+        this._internals = this.attachInternals();
+        this.addEventListener("click", this._onClick.bind(this));
         this.value_ = false;
     }
 
     // Form controls usually expose a "value" property
-    get value() { return this.value_; }
-    set value(v) { this.value_ = v; }
+    // get value() { return this.value_; }
+    // set value(v) { this.value_ = v; }
   
     // Called when the element is added to the page
     connectedCallback() {
@@ -52,7 +53,7 @@ class StyledCheckbox extends HTMLElement {
         
         // The functional checkbox element
         this.input = document.createElement("input");
-        this.input.addEventListener('change', () => { this.value_ = this.input.checked; });
+        // this.input.addEventListener('change', () => { this.value_ = this.input.checked; });
         this.input.setAttribute("type", "checkbox");
         if (this.hasAttribute("name")) {
             this.input.setAttribute("name", this.getAttribute("name"));
@@ -65,7 +66,6 @@ class StyledCheckbox extends HTMLElement {
             <svg class="check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
             <svg class="x" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CCDD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         `;
-    
 
         // Apply our custom external styles
         const CSSLink = document.createElement("link");
@@ -80,6 +80,24 @@ class StyledCheckbox extends HTMLElement {
         label.appendChild(this.input);
         label.appendChild(box);
     }
+
+    get checked() {
+        return this._internals.states.has("--checked");
+      }
+    
+      set checked(flag) {
+        if (flag) {
+          this._internals.states.add("--checked");
+        } else {
+          this._internals.states.delete("--checked");
+        }
+      }
+    
+      _onClick(event) {
+        // Toggle the 'checked' property when the element is clicked
+        this.checked = !this.checked;
+        this.input.checked = this.checked;
+      }
 
   }
   

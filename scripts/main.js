@@ -92,6 +92,23 @@ function selectedItems(){
 		
 }
 
+// Always up-to-date set of all currently selected filters
+let selectedFilters = new Set();
+
+const filters = document.getElementsByClassName('filter');
+for (let i = 0; i < filters.length; i++) {
+    filters[i].addEventListener('click', (event) => {
+        event.preventDefault();
+        // Checking the state BEFORE the change is actually made
+        if (filters[i].checked) {
+            selectedFilters.delete(filters[i].id);
+        } else {
+            selectedFilters.add(filters[i].id);
+        }
+        console.log(selectedFilters);
+    });
+}
+
 openInfo('Products');
 
 export { openInfo };
