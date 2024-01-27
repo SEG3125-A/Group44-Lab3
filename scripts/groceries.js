@@ -8,7 +8,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 1.05
 	},
 	{
@@ -16,7 +16,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: false,
-        lowSugar: true,
+        organic: true,
 		price: 3.29
 	},
 	{
@@ -24,7 +24,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: false,
-        lowSugar: false,
+        organic: false,
 		price: 18
 	},
 	{
@@ -32,7 +32,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 17.58
 	},
 	{
@@ -40,7 +40,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 6.99
 	},
 	{
@@ -48,7 +48,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: false,
-        lowSugar: false,
+        organic: false,
 		price: 4.39
 	},
 	{
@@ -56,7 +56,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 8.99
 	},
 	{
@@ -64,7 +64,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: false,
         dairyFree: false,
-        lowSugar: true,
+        organic: false,
 		price: 9.99
 	},
 	{
@@ -72,7 +72,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 4.97
 	},
 	{
@@ -80,7 +80,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
-        lowSugar: true,
+        organic: true,
 		price: 16.99
 	},
 ];
@@ -126,8 +126,8 @@ function restrictListProducts(prods, restrictions) {
                 && (products.has(prods[i]))){
                     products.delete(prods[i]);
 
-            } else if ((restriction == "low-sugar") 
-                && (prods[i].lowSugar == false)
+            } else if ((restriction == "organic") 
+                && (prods[i].organic == false)
                 && (products.has(prods[i]))){
                     products.delete(prods[i]);
             }
