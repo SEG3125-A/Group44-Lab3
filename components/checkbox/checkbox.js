@@ -97,6 +97,7 @@ class StyledCheckbox extends HTMLElement {
         // Toggle the 'checked' property when the element is clicked
         this.checked = !this.checked;
         this.input.checked = this.checked;
+        console.log(this.checked);
       }
 
   }
