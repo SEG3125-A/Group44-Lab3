@@ -27,10 +27,10 @@
                     <div class="field-name-hint">(select all that apply)</div>
                 </div>
     
-                <styled-checkbox class="filter" id="gluten-free" name="gluten-free" label="Gluten Free"></styled-checkbox>
-                <styled-checkbox class="filter" id="vegetarian" name="vegetarian" label="Vegetarian"></styled-checkbox>
-                <styled-checkbox class="filter" id="lactose-intolerant" name="lactose-intolerant" label="Lactose Intolerant"></styled-checkbox>
-                <styled-checkbox class="filter" id="organic" name="organic" label="Organic Foods Only"></styled-checkbox>
+                <styled-checkbox class="restriction" id="gluten-free" name="gluten-free" label="Gluten Free"></styled-checkbox>
+                <styled-checkbox class="restriction" id="vegetarian" name="vegetarian" label="Vegetarian"></styled-checkbox>
+                <styled-checkbox class="restriction" id="lactose-intolerant" name="lactose-intolerant" label="Lactose Intolerant"></styled-checkbox>
+                <styled-checkbox class="restriction" id="organic" name="organic" label="Organic Foods Only"></styled-checkbox>
 
             </div>
         
@@ -39,14 +39,14 @@
                 <p>The products shown are based on your restrictions (click on the profile icon to view/change them).</p>
                 Choose items to buy:
                 <div id="displayProduct"></div>
-                <button id="addCart" type="button" class="add-to-cart-button" onclick="selectedItems()">
+                <button id="addCart" type="button" class="add-to-cart-button">
                     Add to cart
                 </button>
             </div>
             
             <div id="Cart" class="tabcontent">
                 <h3>Cart</h3>
-                <div id="displayCart"></div>
+                <div id="cartContent"></div>
             </div>
 
             <p class="signature">Website designed by Group 44 (Andrew, Lisa, Zechen)</p>
@@ -54,7 +54,6 @@
         </div>
     </div>
 
-    <script type="module" src="scripts/groceries.js"></script>
     <script type="module" src="scripts/main.js"></script>
 </body>
 </html> 
