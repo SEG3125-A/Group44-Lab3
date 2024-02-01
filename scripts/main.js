@@ -28,21 +28,6 @@ function switchTabs(toTabName) {
     // Calls the selected page's dedicated showTab() function
     tabs[toTabName].showTab();
 
-    // switch(toTabName) {
-    //     case "Products":
-    //         productsPage.showTab();
-
-    //         break;
-    //     case "Cart":
-    //         cartPage.showTab();
-
-    //         break;
-    //     case "Client":
-
-    //         clientPage.showTab();
-    //         break;   
-    // }
-
 }
 
 // Default first page to open

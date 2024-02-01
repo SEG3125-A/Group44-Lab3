@@ -1,26 +1,5 @@
 import { ALL_PRODUCTS } from "./product_list.js"; 
 
-// type Restriction = "vegetarian" | "gluten-free" | "lactose-intolerant" | "organic" ;
-
-// type Product = {
-//     name: string,
-// 	vegetarian: boolean,
-// 	glutenFree: boolean,
-//     dairyFree: boolean,
-//     organic: boolean,
-// 	price: number
-// }
-
-// type CartItem = {
-//     product: Product,
-//     quantity: number
-// }
-
-// type Cart = {
-//     items: CartItem[],
-//     totalPrice: number,
-// }
-
 // One stop shop where all the app data is stored, managed, and can be accessed
 
 class DataStore {
