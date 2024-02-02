@@ -4,14 +4,11 @@ class CartTab {
 
     tab;               // Main div corresponding to the Cart tab
     cartContent;       // div containing displayed cart items
-    productNameCart;   // id for product name in cart
-    
 
     // Gets called once on application startup
     constructor() {
         this.tab = document.getElementById('Cart');
         this.cartContent = document.getElementById('cartContent');
-        this.productNameCart = document.getElementById('productNameCart');
     }
 
     // Make this tab visible and active
