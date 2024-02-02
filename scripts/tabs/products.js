@@ -39,7 +39,7 @@ class ProductsTab {
             productDiv.setAttribute("class", "product-div");
 
             var productImage = document.createElement("img");
-            productImage.setAttribute("src", "../../assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
+            productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
             productImage.setAttribute("class", "product-image");
 
             // Create the checkbox and add in HTML DOM

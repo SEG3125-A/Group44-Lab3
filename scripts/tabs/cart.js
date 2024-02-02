@@ -63,7 +63,7 @@ class CartTab {
                 let cartTableDataImageColumn = document.createElement("td");
 
                 let productImage = document.createElement("img");
-                productImage.setAttribute("src", "../../assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
+                productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png"); // https://stackoverflow.com/a/56305193
                 productImage.setAttribute("class", "product-image");
 
                 // Add content (product price) to the table cell
