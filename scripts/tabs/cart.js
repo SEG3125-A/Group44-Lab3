@@ -87,7 +87,12 @@ class CartTab {
 
             // Display table and total price
             this.cartContent.appendChild(cartTable);
-            this.cartContent.appendChild(document.createTextNode("Total Price is $" + data.getTotalPrice().toFixed(2)));
+
+            var para = document.createElement("P");
+            para.setAttribute("class", "text-right");
+	        para.innerHTML = "Total Price is $" + data.getTotalPrice().toFixed(2);
+
+            this.cartContent.appendChild(para);
         }
     }
 
