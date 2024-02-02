@@ -4,7 +4,7 @@
 const ALL_PRODUCTS = [
 	{
         id: 1, 
-		name: "Apple",
+		name: "Apples",
 		vegetarian: true,
 		glutenFree: true,
         dairyFree: true,
