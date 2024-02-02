@@ -111,6 +111,7 @@ body {
     color: rgba(148, 153, 154, 1);
     font-size: 14px;
     font-weight: 400;
+    text-align: center;
 }
 
 .product-image {
