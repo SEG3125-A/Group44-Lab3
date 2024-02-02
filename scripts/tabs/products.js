@@ -29,19 +29,35 @@ class ProductsTab {
     displayProducts() {
 
         this.productsDiv.innerHTML = "";        // Clear the current products list
+        this.productsDiv.setAttribute("class", "products-div");
         let products = data.getProducts();      // Get list of products from the data store
             
         for (let i = 0; i < products.length; i++) {
             var productName = products[i].name;
 
+            var productDiv = document.createElement("div");
+            productDiv.setAttribute("class", "product-div");
+
+            var productImage = document.createElement("img");
+            productImage.setAttribute("src", "../../assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
+            productImage.setAttribute("class", "product-image");
+
             // Create the checkbox and add in HTML DOM
             const checkbox = document.createElement("styled-checkbox");
+            checkbox.setAttribute("id", products[i].id);
             checkbox.setAttribute("name", "product");
             checkbox.setAttribute("label", productName + " - $" + products[i].price.toFixed(2));
-            checkbox.setAttribute("id", products[i].id);
+
+            var checkboxLabel = document.createElement("label");
+            checkboxLabel.setAttribute("for", products[i].id);
+            checkboxLabel.appendChild(productImage);
+
             checkbox.addEventListener('click', (event) => { event.preventDefault(); });
             
-            this.productsDiv.appendChild(checkbox);
+            productDiv.appendChild(checkboxLabel);
+            productDiv.appendChild(checkbox);
+
+            this.productsDiv.appendChild(productDiv);
             this.productsDiv.appendChild(document.createElement("br"));     // Add line break before moving on to next product
         }
     }
