@@ -126,3 +126,32 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
+.text-right {
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Hoverable rows */
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Line between rows */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
