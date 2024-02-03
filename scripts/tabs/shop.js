@@ -20,15 +20,9 @@ class ShopTab {
         this.sortOrder = document.getElementById('sort-order-dropdown');
         this.applyRestrictionToggle = document.getElementById('applyRestrictionsFlag')
 
-        this.btnAddToCart.addEventListener('click', () => {
-            this.addSelectedToCart();
-        });
         this.sortOrder.addEventListener('change', () => {
             data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value);
             this.displayProducts();
-        });
-        this.btnApplyFilters.addEventListener('click', () => {
-            data.setMaxPrice(document.getElementById('rangeSlider').value);
         });
         this.btnApplyFilters.addEventListener('click', () => {
             data.setMaxPrice(document.getElementById('rangeSlider').value);
