@@ -11,7 +11,7 @@ class DataStore {
     maxPrice;
     sortOrder = "alphabetical-accending";
     applyRestrictionsBool = true;
-    
+   
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();
@@ -19,7 +19,8 @@ class DataStore {
             items: new Array(),
             totalPrice: 0,
         }
-this.maxPrice = 20;
+        this.maxPrice = 20;
+
     }
 
 setMaxPrice(newMaxPrice) {

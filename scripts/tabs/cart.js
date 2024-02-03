@@ -4,11 +4,16 @@ class CartTab {
 
     tab;               // Main div corresponding to the Cart tab
     cartContent;       // div containing displayed cart items
-
+    clearCartButton;
     // Gets called once on application startup
     constructor() {
         this.tab = document.getElementById('Cart');
         this.cartContent = document.getElementById('cartContent');
+        this.clearCartButton = document.getElementById('clearCart');
+        this.clearCartButton.addEventListener('click', () => {
+            data.emptyCart();
+            this.displayCartItems();
+        });
     }
 
     // Make this tab visible and active
