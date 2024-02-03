@@ -8,7 +8,9 @@ class DataStore {
     productList;
     currentProduct;
     cart;
+    maxPrice;
     sortOrder = "alphabetical-accending";
+    
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();
@@ -16,9 +18,12 @@ class DataStore {
             items: new Array(),
             totalPrice: 0,
         }
+        this.maxPrice = 20;
     }
 
-
+    setMaxPrice(newMaxPrice) {
+        this.maxPrice = newMaxPrice;
+    }
 
     // --- RESTRICTIONS ---
 
