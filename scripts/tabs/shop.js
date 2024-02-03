@@ -107,6 +107,7 @@ class ShopTab {
             productDiv.appendChild(productImage);
 
             const productLabel = document.createElement('p');
+            productLabel.setAttribute("class", "product-label");
             productLabel.innerText = productName + " - $" + products[i].price.toFixed(2);
             productDiv.appendChild(productLabel);
 
