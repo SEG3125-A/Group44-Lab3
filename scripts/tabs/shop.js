@@ -24,9 +24,11 @@ class ShopTab {
             data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value);
             this.displayProducts();
         });
+
         this.btnApplyFilters.addEventListener('click', () => {
             data.setMaxPrice(document.getElementById('rangeSlider').value);
         });
+
         this.applyRestrictionToggle.addEventListener('change',() =>{
             if(this.applyRestrictionToggle.checked){
                 data.setApplyRestrictionsBool(true);
@@ -34,6 +36,10 @@ class ShopTab {
             else if(this.applyRestrictionToggle.checked == false){
                 data.setApplyRestrictionsBool(false);
             }
+        });
+        
+        this.btnApplyFilters.addEventListener('click', () => {
+            data.setMaxPrice(document.getElementById('rangeSlider').value);
             this.displayProducts();
         });
 
