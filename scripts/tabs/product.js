@@ -1,7 +1,7 @@
 import { data } from "../datastore.js";
 import { switchTabs } from "../main.js";
 
-class ShopTab {
+class ProductTab {
 
     tab;               // Main div corresponding to the Products tab
     productsDiv;       // Div containing the displayed products list
@@ -19,15 +19,15 @@ class ShopTab {
     }
 
     // Make this tab visible and active
-    showTab() {
+    showTab(productID) {
         this.tab.style.display = "flex";
         this.tab.classList.add('active');
-        this.switchProduct();
+        this.switchProduct(productID);
     }
     
     
     // Updates the data store with the selected cart items
-    addSelectedToCart() {
+    addToCart() {
         
         // let products = document.getElementsByName("product");
         // let selected = [];
@@ -47,5 +47,5 @@ class ShopTab {
 
 }
 
-let shopTab = new ShopTab();
-export { shopTab };
+let productTab = new ProductTab();
+export { productTab };
