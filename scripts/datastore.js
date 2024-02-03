@@ -71,10 +71,10 @@ class DataStore {
     
         switch(this.sortOrder){
             case "alphabetical-accending":
-                this.productList.sort((a,b) => a.name - b.name);
+                this.productList.sort((a,b) => a.name.localeCompare(b.name));
                 break;
             case "alphabetical-decending":
-                this.productList.sort((a,b) => b.name - a.name);
+                this.productList.sort((a,b) => b.name.localeCompare(a.name));
                 break;
             case "price-accending":
                 this.productList.sort((a,b) => a.price - b.price);
