@@ -16,10 +16,11 @@ class ShopTab {
         this.sortOrder = document.getElementById('sort-order-dropdown');
 
         this.btnAddToCart.addEventListener('click', () => { 
-            this.addSelectedToCart(); 
+            this.addSelectedToCart();
         });
         this.sortOrder.addEventListener('change', () => { 
-            data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value)
+            data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value);
+            this.displayProducts();
         });
     }
 
@@ -27,13 +28,14 @@ class ShopTab {
     showTab() {
         this.tab.style.display = "flex";
         this.tab.classList.add('active');
-        data.updateProductList();   // Apply any selected restrictions
         this.displayProducts();
     }
 
     // Generate a checkbox for each product to be displayed
     displayProducts() {
 
+        data.updateProductList();
+        
         this.productsDiv.innerHTML = "";        // Clear the current products list
         this.productsDiv.setAttribute("class", "products-div");
         let products = data.getProducts();      // Get list of products from the data store
@@ -52,19 +54,19 @@ class ShopTab {
             productImage.setAttribute("class", "product-image");
 
             // Create the checkbox and add in HTML DOM
-            const checkbox = document.createElement("styled-checkbox");
-            checkbox.setAttribute("id", products[i].id);
-            checkbox.setAttribute("name", "product");
-            checkbox.setAttribute("label", productName + " - $" + products[i].price.toFixed(2));
+            // const checkbox = document.createElement("styled-checkbox");
+            // checkbox.setAttribute("id", products[i].id);
+            // checkbox.setAttribute("name", "product");
+            // checkbox.setAttribute("label", productName + " - $" + products[i].price.toFixed(2));
 
-            var checkboxLabel = document.createElement("label");
-            checkboxLabel.setAttribute("for", products[i].id);
-            checkboxLabel.appendChild(productImage);
+            // var checkboxLabel = document.createElement("label");
+            // checkboxLabel.setAttribute("for", products[i].id);
+            // checkboxLabel.appendChild(productImage);
 
-            checkbox.addEventListener('click', (event) => { event.preventDefault(); });
+            // checkbox.addEventListener('click', (event) => { event.preventDefault(); });
             
-            productDiv.appendChild(checkboxLabel);
-            productDiv.appendChild(checkbox);
+            // productDiv.appendChild(checkboxLabel);
+            // productDiv.appendChild(checkbox);
 
             this.productsDiv.appendChild(productDiv);
             this.productsDiv.appendChild(document.createElement("br"));     // Add line break before moving on to next product
@@ -74,20 +76,20 @@ class ShopTab {
     // Updates the data store with the selected cart items
     addSelectedToCart() {
         
-        let products = document.getElementsByName("product");
-        let selected = [];
+        // let products = document.getElementsByName("product");
+        // let selected = [];
 
-        for (let i = 0; i < products.length; i++) { 
-            if (products[i].checked) {
-                let product = data.getProductByID(products[i].id);
-                if (product) {
-                    selected.push(product);
-                }
-            }
-        }
+        // for (let i = 0; i < products.length; i++) { 
+        //     if (products[i].checked) {
+        //         let product = data.getProductByID(products[i].id);
+        //         if (product) {
+        //             selected.push(product);
+        //         }
+        //     }
+        // }
 
-        data.emptyCart();
-        data.addToCart(selected);
+        // data.emptyCart();
+        // data.addToCart(selected);
     }
 
 }
