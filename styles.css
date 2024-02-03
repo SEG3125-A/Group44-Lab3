@@ -143,6 +143,7 @@ body {
     flex-wrap: wrap;
 }
 
+/*Slider adapted from https://www.w3schools.com/howto/howto_js_rangeslider.asp*/
 .sliderContainer {
     width: 200px;
 }
