@@ -14,10 +14,12 @@
 * TO-DO
 
 >Zechen Zhou
-* TO-DO
+* Redesigned the cart page
+* Added product prices and a total to the cart page
+* Added product images to the cart page
 
 ### 5. Snapshots of the website: 
-## TO-DO： update snapshots
   ![](/Docs/Images/snapshot1.png)
   ![](/Docs/Images/snapshot2.png)
   ![](/Docs/Images/snapshot3.png)
+  ![](/Docs/Images/snapshot4.png)

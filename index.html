@@ -34,7 +34,13 @@
 
             </div>
         
-            <div id="Products" class="tabcontent">
+            <div id="Shop" class="tabcontent">
+                <select name="SortOrderDropdown" id="sort-order-dropdown">
+                    <option value = "alphabetical-accending">Names A to Z</option>
+                    <option value = "alphabetical-decending">Names Z to A</option>
+                    <option value = "price-accending">Priced Low to High</option>
+                    <option value = "price-decending">Priced High to Low</option>
+                </select>
                 <h3>Your targeted products</h3>
 
                 <div id="filtersContainer"></div>
@@ -45,22 +51,32 @@
 
                 <p>The products shown are based on your restrictions (click on the profile icon to view/change them).</p>
                 Choose items to buy:
-                <div id="displayProduct"></div>
-                <button id="addCart" type="button" class="products-page-button">
+
+                <div id="visible-products"></div>
+                <button id="addCart" type="button" class="add-to-cart-button">
+                    Add to cart
+                </button>
+            </div>
+ 
+            <div id="Product" class="tabcontent">
+                <div class="section-header">
+                    <div id='product-name' class="section-name">Product Name</div>
+                    <div class="h-divider"></div>
+                </div>
+                <div id="current-product"></div>
+                <button id="add-product" type="button" class="add-product">
                     Add to cart
                 </button>
             </div>
             
             <div id="Cart" class="tabcontent">
-                <h3>Cart</h3>
                 <div id="cartContent"></div>
             </div>
-
-            <p class="signature">Website designed by Group 44 (Andrew, Lisa, Zechen)</p>
-
         </div>
     </div>
 
+    <p class="signature">Website designed by Group 44 (Andrew, Lisa, Zechen)</p>
+    
     <script type="module" src="scripts/main.js"></script>
 </body>
 </html> 

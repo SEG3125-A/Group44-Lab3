@@ -1,25 +1,30 @@
 import { data } from "../datastore.js";
+import { switchTabs } from "../main.js";
 
-class ProductsTab {
+class ShopTab {
 
     tab;               // Main div corresponding to the Products tab
     filtersDiv;        // Div containing the product filters
+    sortOrder;
     productsDiv;       // Div containing the displayed products list
     btnAddToCart;      // "Add to Cart" button
     btnApplyFilters;   // "Apply Filters" button
 
     // Gets called once on application startup
     constructor() {
-        this.tab = document.getElementById('Products');
+        this.tab = document.getElementById('Shop');
+        this.productsDiv = document.getElementById('visible-products');
         this.filtersDiv = document.getElementById('filtersContainer');
-        this.productsDiv = document.getElementById('displayProduct');
         this.btnAddToCart = document.getElementById('addCart');
         this.btnApplyFilters = document.getElementById('applyFilters');
-        
+        this.sortOrder = document.getElementById('sort-order-dropdown');
+
         this.btnAddToCart.addEventListener('click', () => { 
             this.addSelectedToCart(); 
         });
-
+        this.sortOrder.addEventListener('change', () => { 
+            data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value)
+        });
         this.btnApplyFilters.addEventListener('click', () => {
             data.setMaxPrice(document.getElementById('rangeSlider').value);
         });
@@ -76,9 +81,12 @@ class ProductsTab {
 
             var productDiv = document.createElement("div");
             productDiv.setAttribute("class", "product-div");
+            productDiv.addEventListener('click', (e) => {
+                switchTabs('product', products[i].id);
+            });
 
             var productImage = document.createElement("img");
-            productImage.setAttribute("src", "../../assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
+            productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
             productImage.setAttribute("class", "product-image");
 
             // Create the checkbox and add in HTML DOM
@@ -122,5 +130,5 @@ class ProductsTab {
 
 }
 
-let productsTab = new ProductsTab();
-export { productsTab };
+let shopTab = new ShopTab();
+export { shopTab };

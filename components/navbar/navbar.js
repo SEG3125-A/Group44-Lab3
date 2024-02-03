@@ -63,7 +63,7 @@ class Navbar extends HTMLElement {
         // products.setAttribute("href", "./pages/products.html"); // <- Delete this line if using in an SPA
         products.innerText = "Products";
         products.addEventListener('click', () => {
-            switchTabs('products');
+            switchTabs('shop');
         });
         
         // Cart page link
