@@ -1,4 +1,4 @@
-import { ALL_PRODUCTS } from "./product_list.js"; 
+import { ALL_PRODUCTS } from "./product_list.js";
 
 // One stop shop where all the app data is stored, managed, and can be accessed
 
@@ -11,7 +11,7 @@ class DataStore {
     maxPrice;
     sortOrder = "alphabetical-accending";
     applyRestrictionsBool = true;
-    
+
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();
@@ -80,7 +80,7 @@ class DataStore {
                 productSet.delete(product);
             }
         });
-    
+
         // Convert the set to an array that can be sorted
         this.productList = [];
         productSet.forEach ((product) => { this.productList.push(product); });
