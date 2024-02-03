@@ -7,7 +7,6 @@ class ShopTab {
     filtersDiv;        // Div containing the product filters
     sortOrder;
     productsDiv;       // Div containing the displayed products list
-    btnAddToCart;      // "Add to Cart" button
     btnApplyFilters;   // "Apply Filters" button
 
     // Gets called once on application startup
@@ -19,15 +18,9 @@ class ShopTab {
         this.btnApplyFilters = document.getElementById('applyFilters');
         this.sortOrder = document.getElementById('sort-order-dropdown');
 
-        this.btnAddToCart.addEventListener('click', () => { 
-            this.addSelectedToCart();
-        });
         this.sortOrder.addEventListener('change', () => { 
             data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value);
             this.displayProducts();
-        });
-        this.btnApplyFilters.addEventListener('click', () => {
-            data.setMaxPrice(document.getElementById('rangeSlider').value);
         });
         this.btnApplyFilters.addEventListener('click', () => {
             data.setMaxPrice(document.getElementById('rangeSlider').value);
@@ -102,25 +95,6 @@ class ShopTab {
             this.productsDiv.appendChild(productDiv);
             this.productsDiv.appendChild(document.createElement("br"));     // Add line break before moving on to next product
         }
-    }
-    
-    // Updates the data store with the selected cart items
-    addSelectedToCart() {
-        
-        // let products = document.getElementsByName("product");
-        // let selected = [];
-
-        // for (let i = 0; i < products.length; i++) { 
-        //     if (products[i].checked) {
-        //         let product = data.getProductByID(products[i].id);
-        //         if (product) {
-        //             selected.push(product);
-        //         }
-        //     }
-        // }
-
-        // data.emptyCart();
-        // data.addToCart(selected);
     }
 
 }
