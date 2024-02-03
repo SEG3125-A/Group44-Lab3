@@ -4,6 +4,7 @@ import { switchTabs } from "../main.js";
 class ShopTab {
 
     tab;               // Main div corresponding to the Products tab
+    sortOrder;
     productsDiv;       // Div containing the displayed products list
     btnAddToCart;      // "Add to Cart" button
 
@@ -12,9 +13,13 @@ class ShopTab {
         this.tab = document.getElementById('Shop');
         this.productsDiv = document.getElementById('visible-products')
         this.btnAddToCart = document.getElementById('addCart');
-        
+        this.sortOrder = document.getElementById('sort-order-dropdown');
+
         this.btnAddToCart.addEventListener('click', () => { 
             this.addSelectedToCart(); 
+        });
+        this.sortOrder.addEventListener('change', () => { 
+            data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value)
         });
     }
 
