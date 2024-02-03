@@ -7,6 +7,7 @@ class DataStore {
     restrictions;
     productList;
     cart;
+    maxPrice;
 
     // Gets called once on application startup
     constructor() {
@@ -15,9 +16,12 @@ class DataStore {
             items: new Array(),
             totalPrice: 0,
         }
+        this.maxPrice = 20;
     }
 
-
+    setMaxPrice(newMaxPrice) {
+        this.maxPrice = newMaxPrice;
+    }
 
     // --- RESTRICTIONS ---
 
