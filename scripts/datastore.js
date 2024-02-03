@@ -8,6 +8,7 @@ class DataStore {
     productList;
     currentProduct;
     cart;
+maxPrice;
     sortOrder = "alphabetical-accending";
     applyRestrictionsBool = false;
     // Gets called once on application startup
@@ -17,9 +18,12 @@ class DataStore {
             items: new Array(),
             totalPrice: 0,
         }
+this.maxPrice = 20;
     }
 
-
+setMaxPrice(newMaxPrice) {
+        this.maxPrice = newMaxPrice;
+    }
 
     // --- RESTRICTIONS ---
 
@@ -34,33 +38,33 @@ class DataStore {
     // Update the list of products to display
     updateProductList() {
         let productSet = new Set();
-    
+
         // Add all products to the set
         for (let i = 0; i < ALL_PRODUCTS.length; i++) {
             productSet.add(ALL_PRODUCTS[i]);
         }
-    
+
         // Remove the ones that don't meet the restriction
-        
+
         if(this.applyRestrictionsBool == true){
             this.restrictions.forEach ((restriction) => {
                 ALL_PRODUCTS.forEach(product => {
-                    if ((restriction == "vegetarian") 
+                    if ((restriction == "vegetarian")
                         && (product.vegetarian == false)
                         && (productSet.has(product))){
                             productSet.delete(product);
-        
-                    } else if ((restriction == "gluten-free") 
+
+                    } else if ((restriction == "gluten-free")
                         && (product.glutenFree == false)
                         && (productSet.has(product))){
                             productSet.delete(product);
-        
-                    } else if ((restriction == "lactose-intolerant") 
+
+                    } else if ((restriction == "lactose-intolerant")
                         && (product.dairyFree == false)
                         && (productSet.has(product))){
                             productSet.delete(product);
-        
-                    } else if ((restriction == "organic") 
+
+                    } else if ((restriction == "organic")
                         && (product.organic == false)
                         && (productSet.has(product))){
                             productSet.delete(product);
@@ -69,11 +73,11 @@ class DataStore {
             });
         }
 
-    
+
         // Convert the set to an array that can be sorted
         this.productList = [];
         productSet.forEach ((product) => { this.productList.push(product); });
-    
+
         switch(this.sortOrder){
             case "alphabetical-accending":
                 this.productList.sort((a,b) => a.name.localeCompare(b.name));
@@ -101,7 +105,7 @@ class DataStore {
     }
 
     getProductByID(id) {
-        for (let i = 0; i < ALL_PRODUCTS.length; i++) { 
+        for (let i = 0; i < ALL_PRODUCTS.length; i++) {
             if (ALL_PRODUCTS[i].id == id) {
                 return ALL_PRODUCTS[i];
             }
@@ -112,7 +116,7 @@ class DataStore {
     switchProduct(id) {
         this.currentProduct = this.getProductByID(id);
     }
-    
+
     getCurrentProduct(){
         return this.currentProduct;
     }

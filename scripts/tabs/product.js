@@ -16,7 +16,7 @@ class ProductTab {
         this.btnAddToCart = document.getElementById('add-product');
         
         this.btnAddToCart.addEventListener('click', () => { 
-            this.addSelectedToCart(); 
+            this.addToCart();
         });
     }
 
