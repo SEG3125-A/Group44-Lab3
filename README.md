@@ -12,7 +12,7 @@
 
 >Lisa Korolyov
 * Added images to products page
-* Restyled products page buttons
+* Restyled products page buttons, product containers, on-hover events
 * Added price range filter (slider)
 
 >Zechen Zhou
