@@ -88,16 +88,16 @@ class DataStore {
     }
 
     switchProduct(id) {
-        currentProduct = getProductByID(id);
+        this.currentProduct = this.getProductByID(id);
     }
     
     getCurrentProduct(){
-        return currentProduct;
+        return this.currentProduct;
     }
 
     // --- CART ---
 
-    addToCart(selected) {
+    addManyToCart(selected) {
         let cartItems = [];
         selected.forEach(product => {
             cartItems.push({
@@ -107,6 +107,17 @@ class DataStore {
         });
 
         this.cart.items = cartItems;
+        this.updateTotalPrice();
+    }
+
+    addCurrentToCart() {
+        let cartItem = {
+            product: this.currentProduct,
+            quantity: 1
+        }
+        if (!this.cart.items.includes(cartItem)) {
+            this.cart.items.push(cartItem)
+        }
         this.updateTotalPrice();
     }
 

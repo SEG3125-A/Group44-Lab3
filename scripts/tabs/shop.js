@@ -38,14 +38,13 @@ class ShopTab {
 
             var productDiv = document.createElement("div");
             productDiv.setAttribute("class", "product-div");
+            productDiv.addEventListener('click', (e) => {
+                switchTabs('product', products[i].id);
+            });
 
             var productImage = document.createElement("img");
             productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
             productImage.setAttribute("class", "product-image");
-            productImage.addEventListener('click', (e) => {
-                
-                switchTabs('Product');
-            });
 
             // Create the checkbox and add in HTML DOM
             const checkbox = document.createElement("styled-checkbox");

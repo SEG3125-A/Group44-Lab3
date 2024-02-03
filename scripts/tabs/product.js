@@ -3,14 +3,16 @@ import { switchTabs } from "../main.js";
 
 class ProductTab {
 
-    tab;               // Main div corresponding to the Products tab
-    productsDiv;       // Div containing the displayed products list
+    tab;               // Main div corresponding to the Product tab
+    productName;       // Header containing the product name
+    productsDiv;       // Div containing the displayed product
     btnAddToCart;      // "Add to Cart" button
 
     // Gets called once on application startup
     constructor() {
         this.tab = document.getElementById('Product');
-        this.displayProduct = document.getElementById('current-product')
+        this.productName = document.getElementById('product-name');
+        this.displayProduct = document.getElementById('current-product');
         this.btnAddToCart = document.getElementById('add-product');
         
         this.btnAddToCart.addEventListener('click', () => { 
@@ -25,24 +27,24 @@ class ProductTab {
         this.switchProduct(productID);
     }
     
-    
+    switchProduct(productID) {
+        data.switchProduct(productID);
+        const currentProduct = data.getCurrentProduct();
+
+        this.productName.innerHTML = currentProduct.name + " - $" + currentProduct.price.toFixed(2)
+
+        const productImage = document.createElement("img");
+        productImage.setAttribute("src", "./assets/" + currentProduct.name.toLowerCase().replace(" ", "-") + ".png");
+        productImage.setAttribute("class", "product-image-main");
+
+        this.displayProduct.innerHTML = "";
+        this.displayProduct.appendChild(productImage);
+    }
+
+
     // Updates the data store with the selected cart items
     addToCart() {
-        
-        // let products = document.getElementsByName("product");
-        // let selected = [];
-
-        // for (let i = 0; i < products.length; i++) { 
-        //     if (products[i].checked) {
-        //         let product = data.getProductByID(products[i].id);
-        //         if (product) {
-        //             selected.push(product);
-        //         }
-        //     }
-        // }
-
-        // data.emptyCart();
-        // data.addToCart(selected);
+        data.addCurrentToCart();
     }
 
 }

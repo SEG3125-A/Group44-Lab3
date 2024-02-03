@@ -13,7 +13,7 @@ const tabs = {
 
 // This function is called when any of the tab is clicked
 // It is adapted from https://www.w3schools.com/howto/howto_js_tabs.asp
-function switchTabs(toTabName) {
+function switchTabs(toTabName, productID) {
 
 	// Get all elements with class="tabcontent" and hide them
 	const tabcontent = document.getElementsByClassName("tabcontent");
@@ -28,13 +28,11 @@ function switchTabs(toTabName) {
 	}
 
     if (toTabName == "product") {
-        productTab.showTab()
+        productTab.showTab(productID)
     } else {
         // Calls the selected page's dedicated showTab() function
         tabs[toTabName].showTab();
     }
-
-    
 
 }
 
