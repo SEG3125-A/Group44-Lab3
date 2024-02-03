@@ -6,6 +6,7 @@ class DataStore {
 
     restrictions;
     productList;
+    currentProduct;
     cart;
 
     // Gets called once on application startup
@@ -86,7 +87,13 @@ class DataStore {
         return null;
     }
 
-
+    switchProduct(id) {
+        currentProduct = getProductByID(id);
+    }
+    
+    getCurrentProduct(){
+        return currentProduct;
+    }
 
     // --- CART ---
 

@@ -1,4 +1,5 @@
 import { shopTab } from "./tabs/shop.js";
+import { productTab } from "./tabs/product.js";
 import { cartTab } from "./tabs/cart.js";
 import { clientTab } from "./tabs/client.js";
 
@@ -26,8 +27,14 @@ function switchTabs(toTabName) {
 		tablinks[i].className = tablinks[i].className.replace(" active", "");
 	}
 
-    // Calls the selected page's dedicated showTab() function
-    tabs[toTabName].showTab();
+    if (toTabName == "product") {
+        productTab.showTab()
+    } else {
+        // Calls the selected page's dedicated showTab() function
+        tabs[toTabName].showTab();
+    }
+
+    
 
 }
 
