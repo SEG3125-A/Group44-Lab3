@@ -8,7 +8,7 @@ class DataStore {
     productList;
     currentProduct;
     cart;
-
+    sortOrder = "alphabetical-accending";
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();
@@ -69,9 +69,26 @@ class DataStore {
         this.productList = [];
         productSet.forEach ((product) => { this.productList.push(product); });
     
-        // Sort array
-        this.productList.sort((a, b) => a.price - b.price);
-        console.log(this.productList);
+        switch(this.sortOrder){
+            case "alphabetical-accending":
+                this.productList.sort((a,b) => a.name - b.name);
+                break;
+            case "alphabetical-decending":
+                this.productList.sort((a,b) => b.name - a.name);
+                break;
+            case "price-accending":
+                this.productList.sort((a,b) => a.price - b.price);
+                break;
+            case "price-decending":
+                this.productList.sort((a,b) => b.price - a.price);
+                break;
+            default:
+                // Sort array
+                this.productList.sort((a, b) => a.price - b.price);
+                console.log(this.productList);
+                console.log("datastore.js sort order defaulted");
+        }
+
     }
 
     getProducts() {
@@ -121,7 +138,9 @@ class DataStore {
         return this.cart.items;
     }
 
-
+    changeSortOrder(arg){
+        this.sortOrder = arg;
+    }
 
     // --- TOTAL PRICE ---
 
