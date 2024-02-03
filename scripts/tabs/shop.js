@@ -54,30 +54,31 @@ class ShopTab {
     }
 
     displayFilters() {
-        var sliderContainer = document.createElement("div");
-        sliderContainer.setAttribute("class", "sliderContainer");
+        // var sliderContainer = document.createElement("div");
+        // sliderContainer.setAttribute("class", "sliderContainer");
 
-        var sliderInput = document.createElement("input");
-        sliderInput.setAttribute("type", "range");
-        sliderInput.setAttribute("min", "1");
-        sliderInput.setAttribute("max", "20");
-        sliderInput.setAttribute("value", "20");
-        sliderInput.setAttribute("class", "slider");
-        sliderInput.setAttribute("id", "rangeSlider");
+        // var sliderInput = document.createElement("input");
+        // sliderInput.setAttribute("type", "range");
+        // sliderInput.setAttribute("min", "1");
+        // sliderInput.setAttribute("max", "20");
+        // sliderInput.setAttribute("value", "20");
+        // sliderInput.setAttribute("class", "slider");
+        // sliderInput.setAttribute("id", "rangeSlider");
 
-        sliderContainer.appendChild(sliderInput);
+        // sliderContainer.appendChild(sliderInput);
 
-        var sliderValue = document.createElement("p");
-        sliderValue.textContent = sliderInput.value;
-        sliderValue.setAttribute("id", "sliderValue");
+        // var sliderValue = document.createElement("p");
+        // sliderValue.textContent = sliderInput.value;
+        // sliderValue.setAttribute("id", "sliderValue");
 
-        var priceFilterContainer = document.createElement("div");
-        priceFilterContainer.appendChild(sliderValue);
-        priceFilterContainer.appendChild(sliderContainer);
+        // var priceFilterContainer = document.createElement("div");
+        // priceFilterContainer.appendChild(sliderValue);
+        // priceFilterContainer.appendChild(sliderContainer);
 
-        this.filtersDiv.innerHTML = "";
-        this.filtersDiv.appendChild(priceFilterContainer);
+        // this.filtersDiv.innerHTML = "";
+        // this.filtersDiv.appendChild(priceFilterContainer);
 
+        let sliderInput = document.getElementById('rangeSlider');
         sliderInput.addEventListener('click', () => {
             sliderValue.textContent = sliderInput.value;
         });

@@ -35,29 +35,36 @@
             </div>
         
             <div id="Shop" class="tabcontent">
-                <select name="SortOrderDropdown" id="sort-order-dropdown">
-                    <option value = "alphabetical-accending">Names A to Z</option>
-                    <option value = "alphabetical-decending">Names Z to A</option>
-                    <option value = "price-accending">Priced Low to High</option>
-                    <option value = "price-decending">Priced High to Low</option>
-                </select>
-                <label class="switch">Apply User Dietary Restrictions
+                
+                <div id="filtersContainer">
+                    <select name="SortOrderDropdown" id="sort-order-dropdown">
+                        <option value = "alphabetical-accending">Names A to Z</option>
+                        <option value = "alphabetical-decending">Names Z to A</option>
+                        <option value = "price-accending">Priced Low to High</option>
+                        <option value = "price-decending">Priced High to Low</option>
+                    </select>
+                    Apply User Dietary Restrictions
+                <label class="switch">
                     <input type="checkbox" id="applyRestrictionsFlag" name="applyRestrictionsCheckbox" value="restrictionsFlag" checked></input>
                     <span class="togglesSlider round"></span>
                 </label>
-                
-                <h3>Your targeted products</h3>
+                    <div id="">
+                        <p id="sliderValue">20</p>
+                        <div class="sliderContainer">
+                            <input type="range" min='1' max="20" value="20" class="slider" id="rangeSlider">
+                        </div>
+                    </div>
+                    
+                    <button id="applyFilters" type="button" class="products-page-button">
+                        Apply
+                    </button>
+                </div>
 
-                <div id="filtersContainer"></div>
-                <button id="applyFilters" type="button" class="products-page-button">
-                    Apply
-                </button>
+                <div id="products-outer">
+                    <h3>Your targeted products</h3>
 
-
-                <p>The products shown are based on your restrictions (click on the profile icon to view/change them).</p>
-                Choose items to buy:
-
-                <div id="visible-products"></div>
+                    <div id="visible-products"></div>
+                </div>
             </div>
  
             <div id="Product" class="tabcontent">
