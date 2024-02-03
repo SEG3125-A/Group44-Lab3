@@ -56,7 +56,6 @@ class ShopTab {
 
         sliderContainer.appendChild(sliderInput);
 
-
         var sliderValue = document.createElement("p");
         sliderValue.textContent = sliderInput.value;
         sliderValue.setAttribute("id", "sliderValue");
@@ -65,6 +64,7 @@ class ShopTab {
         priceFilterContainer.appendChild(sliderValue);
         priceFilterContainer.appendChild(sliderContainer);
 
+        this.filtersDiv.innerHTML = "";
         this.filtersDiv.appendChild(priceFilterContainer);
 
         sliderInput.addEventListener('click', () => {
@@ -93,21 +93,11 @@ class ShopTab {
             var productImage = document.createElement("img");
             productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
             productImage.setAttribute("class", "product-image");
-
-            // Create the checkbox and add in HTML DOM
-            // const checkbox = document.createElement("styled-checkbox");
-            // checkbox.setAttribute("id", products[i].id);
-            // checkbox.setAttribute("name", "product");
-            // checkbox.setAttribute("label", productName + " - $" + products[i].price.toFixed(2));
-
-            // var checkboxLabel = document.createElement("label");
-            // checkboxLabel.setAttribute("for", products[i].id);
-            // checkboxLabel.appendChild(productImage);
-
-            // checkbox.addEventListener('click', (event) => { event.preventDefault(); });
+            productDiv.appendChild(productImage);
             
-            // productDiv.appendChild(checkboxLabel);
-            // productDiv.appendChild(checkbox);
+            const productLabel = document.createElement('p');
+            productLabel.innerText = productName + " - $" + products[i].price.toFixed(2);
+            productDiv.appendChild(productLabel);
 
             this.productsDiv.appendChild(productDiv);
             this.productsDiv.appendChild(document.createElement("br"));     // Add line break before moving on to next product
