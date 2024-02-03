@@ -11,7 +11,9 @@
 
 
 >Lisa Korolyov
-* TO-DO
+* Added images to products page
+* Restyled products page buttons
+* Added price range filter (slider)
 
 >Zechen Zhou
 * Redesigned the cart page
