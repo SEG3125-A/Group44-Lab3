@@ -8,9 +8,10 @@ class DataStore {
     productList;
     currentProduct;
     cart;
-maxPrice;
+    maxPrice;
     sortOrder = "alphabetical-accending";
-    applyRestrictionsBool = false;
+    applyRestrictionsBool = true;
+    
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();

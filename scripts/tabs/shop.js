@@ -34,6 +34,7 @@ class ShopTab {
             else if(this.applyRestrictionToggle.checked == false){
                 data.setApplyRestrictionsBool(false);
             }
+            this.displayProducts();
         });
 
     }
