@@ -1,6 +1,7 @@
 import { data } from "../datastore.js";
+import { switchTabs } from "../main.js";
 
-class ProductsTab {
+class ShopTab {
 
     tab;               // Main div corresponding to the Products tab
     productsDiv;       // Div containing the displayed products list
@@ -8,8 +9,8 @@ class ProductsTab {
 
     // Gets called once on application startup
     constructor() {
-        this.tab = document.getElementById('Products');
-        this.productsDiv = document.getElementById('displayProduct')
+        this.tab = document.getElementById('Shop');
+        this.productsDiv = document.getElementById('visible-products')
         this.btnAddToCart = document.getElementById('addCart');
         
         this.btnAddToCart.addEventListener('click', () => { 
@@ -41,6 +42,10 @@ class ProductsTab {
             var productImage = document.createElement("img");
             productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
             productImage.setAttribute("class", "product-image");
+            productImage.addEventListener('click', (e) => {
+                
+                switchTabs('Product');
+            });
 
             // Create the checkbox and add in HTML DOM
             const checkbox = document.createElement("styled-checkbox");
@@ -83,5 +88,5 @@ class ProductsTab {
 
 }
 
-let productsTab = new ProductsTab();
-export { productsTab };
+let shopTab = new ShopTab();
+export { shopTab };

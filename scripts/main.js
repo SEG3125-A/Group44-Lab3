@@ -1,10 +1,11 @@
-import { productsTab } from "./tabs/products.js";
+import { shopTab } from "./tabs/shop.js";
 import { cartTab } from "./tabs/cart.js";
 import { clientTab } from "./tabs/client.js";
 
 
 const tabs = {
-    products: productsTab,
+    shop: shopTab,
+    product: productTab,
     cart: cartTab,
     client: clientTab,
 }
@@ -31,6 +32,6 @@ function switchTabs(toTabName) {
 }
 
 // Default first page to open
-switchTabs('products');
+switchTabs('shop');
 
 export { switchTabs };
