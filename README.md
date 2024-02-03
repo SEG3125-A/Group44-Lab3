@@ -7,13 +7,18 @@
 ### 4. Each member's contribution:
 
 >Andrew Clarke
-* TO-DO
+* Implemented products ‘sort’ dropdown
+* Implemented Apply Restrictions toggle
+* Implemented single-product page
+* Implemented clear cart functionality
+* Restructured & cleaned code
 
 
 >Lisa Korolyov
 * Added images to products page
-* Restyled products page buttons, product containers, on-hover events
-* Added price range filter (slider)
+* Restyled products page buttons and hover functionality
+* Restyled product containers and hover functionality
+* Implemented price range filter (slider)
 
 >Zechen Zhou
 * Redesigned the cart page
