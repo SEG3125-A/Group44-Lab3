@@ -147,6 +147,7 @@ body {
 .product-div:hover {
     cursor: pointer;
     background-color: rgb(228, 241, 242);
+    border-radius: 10px;
 }
 
 .products-div {
