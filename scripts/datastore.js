@@ -19,11 +19,12 @@ class DataStore {
             items: new Array(),
             totalPrice: 0,
         }
-this.maxPrice = 20;
+        this.maxPrice = 20;
     }
 
-setMaxPrice(newMaxPrice) {
+    setMaxPrice(newMaxPrice) {
         this.maxPrice = newMaxPrice;
+        this.updateProductList();
     }
 
     // --- RESTRICTIONS ---
@@ -74,7 +75,12 @@ setMaxPrice(newMaxPrice) {
             });
         }
 
-
+        productSet.forEach (product => {
+            if (product.price > this.maxPrice) {
+                productSet.delete(product);
+            }
+        });
+    
         // Convert the set to an array that can be sorted
         this.productList = [];
         productSet.forEach ((product) => { this.productList.push(product); });
