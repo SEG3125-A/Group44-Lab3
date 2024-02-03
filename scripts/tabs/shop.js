@@ -7,6 +7,7 @@ class ShopTab {
     sortOrder;
     productsDiv;       // Div containing the displayed products list
     btnAddToCart;      // "Add to Cart" button
+    applyRestrictionToggle = false; 
 
     // Gets called once on application startup
     constructor() {
@@ -14,6 +15,7 @@ class ShopTab {
         this.productsDiv = document.getElementById('visible-products')
         this.btnAddToCart = document.getElementById('addCart');
         this.sortOrder = document.getElementById('sort-order-dropdown');
+        this.applyRestrictionToggle = document.getElementById('applyRestrictionsFlag')
 
         this.btnAddToCart.addEventListener('click', () => { 
             this.addSelectedToCart(); 
@@ -21,6 +23,15 @@ class ShopTab {
         this.sortOrder.addEventListener('change', () => { 
             data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value)
         });
+        this.applyRestrictionToggle.addEventListener('change',() =>{
+            if(this.applyRestrictionToggle.checked){
+                data.setApplyRestrictionsBool(true);
+            }
+            else if(this.applyRestrictionToggle.checked == false){
+                data.setApplyRestrictionsBool(false);
+            }
+        });
+
     }
 
     // Make this tab visible and active

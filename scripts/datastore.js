@@ -9,6 +9,7 @@ class DataStore {
     currentProduct;
     cart;
     sortOrder = "alphabetical-accending";
+    applyRestrictionsBool = false;
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();
@@ -40,30 +41,34 @@ class DataStore {
         }
     
         // Remove the ones that don't meet the restriction
-        this.restrictions.forEach ((restriction) => {
-            ALL_PRODUCTS.forEach(product => {
-                if ((restriction == "vegetarian") 
-                    && (product.vegetarian == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-    
-                } else if ((restriction == "gluten-free") 
-                    && (product.glutenFree == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-    
-                } else if ((restriction == "lactose-intolerant") 
-                    && (product.dairyFree == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-    
-                } else if ((restriction == "organic") 
-                    && (product.organic == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-                }
+        
+        if(this.applyRestrictionsBool == true){
+            this.restrictions.forEach ((restriction) => {
+                ALL_PRODUCTS.forEach(product => {
+                    if ((restriction == "vegetarian") 
+                        && (product.vegetarian == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+        
+                    } else if ((restriction == "gluten-free") 
+                        && (product.glutenFree == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+        
+                    } else if ((restriction == "lactose-intolerant") 
+                        && (product.dairyFree == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+        
+                    } else if ((restriction == "organic") 
+                        && (product.organic == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+                    }
+                });
             });
-        });
+        }
+
     
         // Convert the set to an array that can be sorted
         this.productList = [];
@@ -151,6 +156,10 @@ class DataStore {
 
     changeSortOrder(arg){
         this.sortOrder = arg;
+    }
+
+    setApplyRestrictionsBool(arg){
+        this.applyRestrictionsBool = arg;
     }
 
     // --- TOTAL PRICE ---
