@@ -4,15 +4,19 @@ import { switchTabs } from "../main.js";
 class ShopTab {
 
     tab;               // Main div corresponding to the Products tab
+    filtersDiv;        // Div containing the product filters
     sortOrder;
     productsDiv;       // Div containing the displayed products list
     btnAddToCart;      // "Add to Cart" button
+    btnApplyFilters;   // "Apply Filters" button
 
     // Gets called once on application startup
     constructor() {
         this.tab = document.getElementById('Shop');
-        this.productsDiv = document.getElementById('visible-products')
+        this.productsDiv = document.getElementById('visible-products');
+        this.filtersDiv = document.getElementById('filtersContainer');
         this.btnAddToCart = document.getElementById('addCart');
+        this.btnApplyFilters = document.getElementById('applyFilters');
         this.sortOrder = document.getElementById('sort-order-dropdown');
 
         this.btnAddToCart.addEventListener('click', () => { 
@@ -21,6 +25,9 @@ class ShopTab {
         this.sortOrder.addEventListener('change', () => { 
             data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value)
         });
+        this.btnApplyFilters.addEventListener('click', () => {
+            data.setMaxPrice(document.getElementById('rangeSlider').value);
+        });
     }
 
     // Make this tab visible and active
@@ -28,7 +35,38 @@ class ShopTab {
         this.tab.style.display = "flex";
         this.tab.classList.add('active');
         data.updateProductList();   // Apply any selected restrictions
+        this.displayFilters();
         this.displayProducts();
+    }
+
+    displayFilters() {
+        var sliderContainer = document.createElement("div");
+        sliderContainer.setAttribute("class", "sliderContainer");
+
+        var sliderInput = document.createElement("input");
+        sliderInput.setAttribute("type", "range");
+        sliderInput.setAttribute("min", "1");
+        sliderInput.setAttribute("max", "20");
+        sliderInput.setAttribute("value", "20");
+        sliderInput.setAttribute("class", "slider");
+        sliderInput.setAttribute("id", "rangeSlider");
+
+        sliderContainer.appendChild(sliderInput);
+
+
+        var sliderValue = document.createElement("p");
+        sliderValue.textContent = sliderInput.value;
+        sliderValue.setAttribute("id", "sliderValue");
+
+        var priceFilterContainer = document.createElement("div");
+        priceFilterContainer.appendChild(sliderValue);
+        priceFilterContainer.appendChild(sliderContainer);
+
+        this.filtersDiv.appendChild(priceFilterContainer);
+
+        sliderInput.addEventListener('click', () => {
+            sliderValue.textContent = sliderInput.value;
+        });
     }
 
     // Generate a checkbox for each product to be displayed
