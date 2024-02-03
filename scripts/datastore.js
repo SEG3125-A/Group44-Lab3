@@ -10,7 +10,7 @@ class DataStore {
     cart;
 maxPrice;
     sortOrder = "alphabetical-accending";
-
+    applyRestrictionsBool = false;
     // Gets called once on application startup
     constructor() {
         this.restrictions = new Set();
@@ -38,42 +38,46 @@ setMaxPrice(newMaxPrice) {
     // Update the list of products to display
     updateProductList() {
         let productSet = new Set();
-    
+
         // Add all products to the set
         for (let i = 0; i < ALL_PRODUCTS.length; i++) {
             productSet.add(ALL_PRODUCTS[i]);
         }
-    
+
         // Remove the ones that don't meet the restriction
-        this.restrictions.forEach ((restriction) => {
-            ALL_PRODUCTS.forEach(product => {
-                if ((restriction == "vegetarian") 
-                    && (product.vegetarian == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-    
-                } else if ((restriction == "gluten-free") 
-                    && (product.glutenFree == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-    
-                } else if ((restriction == "lactose-intolerant") 
-                    && (product.dairyFree == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-    
-                } else if ((restriction == "organic") 
-                    && (product.organic == false)
-                    && (productSet.has(product))){
-                        productSet.delete(product);
-                }
+
+        if(this.applyRestrictionsBool == true){
+            this.restrictions.forEach ((restriction) => {
+                ALL_PRODUCTS.forEach(product => {
+                    if ((restriction == "vegetarian")
+                        && (product.vegetarian == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+
+                    } else if ((restriction == "gluten-free")
+                        && (product.glutenFree == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+
+                    } else if ((restriction == "lactose-intolerant")
+                        && (product.dairyFree == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+
+                    } else if ((restriction == "organic")
+                        && (product.organic == false)
+                        && (productSet.has(product))){
+                            productSet.delete(product);
+                    }
+                });
             });
-        });
-    
+        }
+
+
         // Convert the set to an array that can be sorted
         this.productList = [];
         productSet.forEach ((product) => { this.productList.push(product); });
-    
+
         switch(this.sortOrder){
             case "alphabetical-accending":
                 this.productList.sort((a,b) => a.name.localeCompare(b.name));
@@ -101,7 +105,7 @@ setMaxPrice(newMaxPrice) {
     }
 
     getProductByID(id) {
-        for (let i = 0; i < ALL_PRODUCTS.length; i++) { 
+        for (let i = 0; i < ALL_PRODUCTS.length; i++) {
             if (ALL_PRODUCTS[i].id == id) {
                 return ALL_PRODUCTS[i];
             }
@@ -112,7 +116,7 @@ setMaxPrice(newMaxPrice) {
     switchProduct(id) {
         this.currentProduct = this.getProductByID(id);
     }
-    
+
     getCurrentProduct(){
         return this.currentProduct;
     }
@@ -156,6 +160,10 @@ setMaxPrice(newMaxPrice) {
 
     changeSortOrder(arg){
         this.sortOrder = arg;
+    }
+
+    setApplyRestrictionsBool(arg){
+        this.applyRestrictionsBool = arg;
     }
 
     // --- TOTAL PRICE ---

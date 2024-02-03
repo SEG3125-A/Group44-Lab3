@@ -7,7 +7,8 @@ class ShopTab {
     filtersDiv;        // Div containing the product filters
     sortOrder;
     productsDiv;       // Div containing the displayed products list
-    btnApplyFilters;   // "Apply Filters" button
+    applyRestrictionToggle = false;
+    btnApplyFilters;
 
     // Gets called once on application startup
     constructor() {
@@ -17,14 +18,30 @@ class ShopTab {
         this.btnAddToCart = document.getElementById('addCart');
         this.btnApplyFilters = document.getElementById('applyFilters');
         this.sortOrder = document.getElementById('sort-order-dropdown');
+        this.applyRestrictionToggle = document.getElementById('applyRestrictionsFlag')
 
-        this.sortOrder.addEventListener('change', () => { 
+        this.btnAddToCart.addEventListener('click', () => {
+            this.addSelectedToCart();
+        });
+        this.sortOrder.addEventListener('change', () => {
             data.changeSortOrder(this.sortOrder.options[this.sortOrder.selectedIndex].value);
             this.displayProducts();
         });
         this.btnApplyFilters.addEventListener('click', () => {
             data.setMaxPrice(document.getElementById('rangeSlider').value);
         });
+        this.btnApplyFilters.addEventListener('click', () => {
+            data.setMaxPrice(document.getElementById('rangeSlider').value);
+        });
+        this.applyRestrictionToggle.addEventListener('change',() =>{
+            if(this.applyRestrictionToggle.checked){
+                data.setApplyRestrictionsBool(true);
+            }
+            else if(this.applyRestrictionToggle.checked == false){
+                data.setApplyRestrictionsBool(false);
+            }
+        });
+
     }
 
     // Make this tab visible and active
@@ -69,11 +86,11 @@ class ShopTab {
     displayProducts() {
 
         data.updateProductList();
-        
+
         this.productsDiv.innerHTML = "";        // Clear the current products list
         this.productsDiv.setAttribute("class", "products-div");
         let products = data.getProducts();      // Get list of products from the data store
-            
+
         for (let i = 0; i < products.length; i++) {
             var productName = products[i].name;
 
@@ -87,7 +104,7 @@ class ShopTab {
             productImage.setAttribute("src", "./assets/" + productName.toLowerCase().replace(" ", "-") + ".png");
             productImage.setAttribute("class", "product-image");
             productDiv.appendChild(productImage);
-            
+
             const productLabel = document.createElement('p');
             productLabel.innerText = productName + " - $" + products[i].price.toFixed(2);
             productDiv.appendChild(productLabel);
